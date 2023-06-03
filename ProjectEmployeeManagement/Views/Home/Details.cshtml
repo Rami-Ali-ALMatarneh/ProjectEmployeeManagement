@@ -1,0 +1,36 @@
+﻿@model HomeDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var photoPath = "/imags/" + (string.IsNullOrEmpty(Model.employee.PhotoPath) ? "img_avatar.png" : Model.employee.PhotoPath);
+
+}
+
+<div class="details">
+    <div class="container">
+        <div class="boxDetails d-flex">
+            <div class="imgDetail ">
+
+                <img src="@photoPath" asp-append-version="true"/>
+            </div>
+            <div class="infoDetail">
+
+                <h1 class="fw-bolder">Hi There, I'm <span class="Names">@Model.employee.Name</span><br />ID: <span class="Names">@Model.employee.Id</span></h1>
+                <p class="department">@Model.employee.department</p>
+                <p class="Phone">Phone: +962 @Model.employee.Phone</p>
+                <p class="Mail">@Model.employee.Email</p>
+                <div class="social d-flex justify-content-start align-items-center">
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://twitter.com/?lang=en"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div class="mt-5 d-flex gap-4">
+                    <a asp-controller="home" asp-action="Update" asp-route-id="@Model.employee.Id" class="btn Edit btn-lg ">Edit</a>
+                    <a asp-controller="home" asp-action="delete" asp-route-id="@Model.employee.Id" class="btn Delete btn-lg ">Delete</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

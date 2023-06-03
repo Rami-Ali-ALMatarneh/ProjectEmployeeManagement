@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    ViewBag.Title = "Update";
+
+}
+@model HomeEditViewModel
+<div class="createEmployee">
+    <div class="container d-flex justify-content-center align-content-center">
+        <div class="boxEmployee d-flex justify-content-center align-content-center">
+            <div class="boxEmployee1">
+            </div>
+            <div class="boxEmployee2">
+                <form class="FormCreate" enctype="multipart/form-data" asp-controller="home" asp-action="update" method="post">
+                    <h2 class="align-text-center">Update an Employee</h2>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Name">Username</label>
+                        <input type="text" class="form-control" placeholder="Username" asp-for="Name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label" asp-for="Email">Email address</label>
+                        <input type="email" class="form-control" asp-for="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Phone">Phone</label>
+                        <input type="text" class="form-control" asp-for="Phone" placeholder="+962">
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+
+                    </div>
+                    <div class="mb-3 d-flex gap-4 daprtImg">
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="department">Department</label>
+                            <select class="form-select" asp-for="department" asp-items="Html.GetEnumSelectList<Department>()">
+                                <option value="">Open this select menu</option>
+                            </select>
+                            <span asp-validation-for="department" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" asp-for="Photo" class="form-label">Upload Image</label>
+                            <input class="form-control" asp-for="Photo"  type="file" id="formFile">
+                        </div>
+                    </div>
+                   
+
+                    <button type="submit" class="btn btn-primary b-R b-raduis-15">Update</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

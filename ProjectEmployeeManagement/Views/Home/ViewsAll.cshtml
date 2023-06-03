@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Employee>
+@{ 
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    ViewBag.Title = "All Employee";
+}
+<div class="teamEmployees mt-5 mb-5">
+    <div class="container">
+        <div class="headerEmployee d-flex justify-content-between align-items-center mb-4" >
+            <h1>@ViewBag.headers</h1>
+            <a asp-controller="home" asp-action="Create" class="btn btn-lg bg-lightpage">Add Employee <i class="fa-solid fa-arrow-right fa-beat"></i></a>
+        </div>
+        <div class="list-Cards row">
+            @foreach (var Employees in Model)
+                {
+                var PhotoPath = "/imags/" + (string.IsNullOrEmpty(Employees.PhotoPath)? "img_avatar.png":Employees.PhotoPath);
+                <div class="card p-0" style="width: 18rem;">
+                    <img src="@PhotoPath" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2 class="card-title fw-bold">@Employees.Name</h2>
+                        <p class="card-text department mb-2">@Employees.department</p>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a  class="btn btn-primary" asp-controller="home" asp-action="details" asp-route-id="@Employees.Id">View</a>
+                            <a  class="btn btn-success" asp-controller="home" asp-action="update" asp-route-id="@Employees.Id">Edit</a>
+                            <a asp-controller="home" asp-action="delete" asp-route-id="@Employees.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                }
+        </div>
+    </div>
+
+</div>
