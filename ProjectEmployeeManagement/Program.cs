@@ -35,13 +35,12 @@ app.UseStatusCodePagesWithRedirects("/Error/{0}");
 app.UseExceptionHandler("/ErrorException");
 /////////////////////////////////
 
-app.UseRouting(); 
-app.UseMvc(Route =>
-{
-    Route.MapRoute(name: "default", template: "{controller=home}/{action=index}/{id?}");
-});
-//app.UseMvcWithDefaultRoute();
+//app.UseMvc(Route =>
+//{
+//    Route.MapRoute(name: "default", template: "{controller=home}/{action=index}/{id}");
+//});
 app.UseStaticFiles();
+app.UseMvcWithDefaultRoute();
 app.Run();
 #endregion
 /////////////////////////////////

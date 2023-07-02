@@ -20,10 +20,10 @@ namespace ProjectEmployeeManagement.Controllers
             var Employee = _employeeRepository.GetAllEmployee();
             return View(Employee);
             }
-        [Route("/home/Views/{department}")]
-        public ViewResult Views( Department department )
+        [Route("/home/Views/{id}")]
+        public ViewResult Views( Department id )
             {
-            var employeesByDepartment = _employeeRepository.GetEmployeesByDepartment(department);
+            var employeesByDepartment = _employeeRepository.GetEmployeesByDepartment(id);
             return View(employeesByDepartment);
             }
         public ViewResult Service()

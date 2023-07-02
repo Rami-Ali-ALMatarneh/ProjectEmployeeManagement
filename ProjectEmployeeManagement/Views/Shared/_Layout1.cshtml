@@ -36,13 +36,13 @@
                             Types of Employee
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="ViewsAll">All Employees</a></li>
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="SoftwareDevelopment">Software Development</a></li>
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="ITOperations">IT Operations</a></li>
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="QualityAssurance">Quality Assurance</a></li>
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="ProjectManagement">Project Management</a></li>
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="ITConsulting">IT Consulting</a></li>
-                            <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="ResearchAndDevelopment">Research And Development</a></li>
+                            @{
+                                foreach (var emp in Enum.GetValues(typeof(Department)))
+                                    {
+                                    <li><a class="dropdown-item" asp-controller="home" asp-action="Views" asp-route-id="@emp">@emp.ToString().Replace("_", " ")</a></li>
+                                    }
+
+                            }
                         </ul>
                     </li>
                     <li class="nav-item">
